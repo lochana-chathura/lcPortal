@@ -30,3 +30,13 @@ jobs:
         with:
           args: 
             build --code-coverage
+
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./target/report/test_results.json
+          directory: ./target/report/
+          name: codecov-umbrella
+          fail_ci_if_error: true
+          # path_to_write_report: ./coverage/codecov_report.txt
+          verbose: true
